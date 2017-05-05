@@ -1,7 +1,14 @@
 class Empresa {
     Funcionario[] empregados;
+    String nome;
     String cnpj;
     int livre = 0;
+
+    public Empresa(){}
+
+    public Empresa(int tamanho){
+        this.empregados = new Funcionario[tamanho];
+    }
 
     void adiciona(Funcionario f) {
         this.empregados[this.livre] = f;
@@ -11,7 +18,7 @@ class Empresa {
     void mostraEmpregados() {
         for (int i = 0; i < this.livre; i++) {
             System.out.println("Funcionario na posicao: " + i);
-            System.out.println("R$" + this.empregados[i].salario);
+            System.out.println("R$" + this.empregados[i].getSalario());
         }
     }
 
@@ -28,5 +35,25 @@ class Empresa {
         	}
     	}
         return false;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCnpj() {
+        return this.cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
+    }
+
+    public Funcionario getFuncionario(int posicao) {
+        return this.empregados[posicao];
     }
 }
